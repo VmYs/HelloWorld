@@ -10,7 +10,6 @@ class Student (val sno : String, val grade : Int, name: String, age: Int) : Pers
     override fun doHomework() {
         println("$name is doing homework.")
     }
-
     override fun readBooks() {
         println("$name is reading books.")
     }

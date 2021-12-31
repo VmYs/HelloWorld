@@ -41,20 +41,61 @@ fun main() {
 //        println(i)
 //    }
 
-    //实例化Person和Student类的对象，调用类中的方法
-    val p = Person("Jack", 19)
-    p.eat()
+//    //实例化Person和Student类的对象，调用类中的方法
+//    val p = Person("Jack", 19)
+//    p.eat()
+//
+//    val student1 = Student()
+//    val student2 = Student("Tom", 20)
+//    val student3 = Student("a123", 5, "Tom", 20)
+//    doStudy(student2)
+//
+//    //实例化数据类Cellphone
+//    val cellphone1 = Cellphone("Samsung", 1299.99)
+//    val cellphone2 = Cellphone("Samsung", 1299.99)
+//    println(cellphone1)
+//    println("cellphone1 equals cellphone2 " + (cellphone1 == cellphone2))
 
-    val student1 = Student()
-    val student2 = Student("Tom", 20)
-    val student3 = Student("a123", 5, "Tom", 20)
-    doStudy(student2)
+    //调用时，kotlin自动创建了一个Singleton类的实例，且保证全局只存在一个Singleton实例
+    Singleton.singletonTest()
 
-    //实例化数据类Cellphone
-    val cellphone1 = Cellphone("Samsung", 1299.99)
-    val cellphone2 = Cellphone("Samsung", 1299.99)
-    println(cellphone1)
-    println("cellphone1 equals cellphone2 " + (cellphone1 == cellphone2))
+    //listOf()函数初始化集合，且listOf()创建的集合是不可变的
+    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape", "Watermelon")
+    //找出集合list中最长的单词，使用了Lambda表达式
+    val maxLengthFruit = list.maxBy { it.length }
+    println("max length fruit is $maxLengthFruit")
+
+//    //mutableListOf()函数初始化的集合是可变的
+//    val list = mutableListOf("Apple", "Banana", "Orange", "Pear", "Grape")
+//    list.add("watermelon")
+    for (fruit in list) {
+        println(fruit)
+    }
+
+    //和list同理，通过setOf()和mutableSetOf()函数初始化不可变/可变的集合
+    val set = setOf("Apple", "Banana", "Orange", "Pear", "Grape")
+    for (fruit in set) {
+        println(fruit)
+    }
+
+//    //类似Java写法，存取数据时无需使用put/get
+//    val map = HashMap<String, Int>()
+//    map["Apple"] = 1
+//    map["Banana"] = 2
+//    map["Orange"] = 3
+//    map["Pear"] = 4
+//    map["Grape"] = 5
+
+    //kotlin中与之前集合相似，map对应有mapOf()和mutableMapOf()
+    //这里关联键值对组合的“to”并不是关键字，而是一个infix函数，会在本书第9章的Kotlin课堂中深入探究infix函数的相关内容。
+    val map = mapOf("Apple" to 1, "Banana" to 2, "Orange" to 3, "Pear" to 4, "Grape" to 5)
+    //for-in循环时将键值对变量一起声明到一个括号里
+    for ((fruit, number) in map) {
+        println("fruit is $fruit, number is $number")
+    }
+
+
+
 }
 
 /*
